@@ -1,0 +1,9 @@
+{
+  "accuracy": 0.9924812030075187,
+  "precision_macro": 0.9921875,
+  "recall_macro": 0.9921875,
+  "f1_macro": 0.9919354838709677,
+  "n_test_samples": 133,
+  "model_path": "/home/ethan/Desktop/python project/Analyse de Donnee/projet_ariary_RNA/models/ariary_yolo_cls.pt",
+  "dataset_dir": "data/yolo_cls"
+}

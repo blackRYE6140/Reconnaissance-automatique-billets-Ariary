@@ -1,0 +1,36 @@
+# Environnements locaux
+env/
+venv/
+.venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Notebooks / outils
+.ipynb_checkpoints/
+.matplotlib/
+.ultralytics/
+
+# IDE et systeme
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.temp
+
+# Les resultats et modeles du projet restent suivis par Git.
+# Ne pas ignorer: results/, models/, runs/, *.pt

@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu
+torchvision==0.28.0+cpu
+ultralytics
+numpy
+Pillow
+scikit-learn
+matplotlib
+seaborn
+opencv-python
