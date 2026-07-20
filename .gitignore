@@ -35,15 +35,7 @@ Thumbs.db
 # Node modules
 node_modules/
 
-# Images dans le dossier data
-data/**/*.jpg
-data/**/*.jpeg
-data/**/*.png
-data/**/*.gif
-data/**/*.bmp
-data/**/*.webp
-data/**/*.tiff
-data/**/*.tif
+
 
 # Les resultats et modeles du projet restent suivis par Git.
 # Ne pas ignorer: results/, models/, runs/, *.pt
