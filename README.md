@@ -21,8 +21,43 @@ Les 8 coupures reconnues (série en circulation, BFM) : **100, 200, 500,
 projet_ariary/
 ├── data/
 │   ├── raw/                  # images brutes classées par dossier (label = valeur faciale)
-│   │   └── generate_demo_dataset.py  # prépare des variantes depuis les images model*
-│   └── README.md             # documentation détaillée du jeu de données
+│   │   ├── 100/
+│   │   ├── 200/
+│   │   ├── 500/
+│   │   ├── 1000/
+│   │   ├── 2000/
+│   │   ├── 5000/
+│   │   ├── 10000/
+│   │   └── 20000/
+│   └── yolo_cls/             # dataset au format Ultralytics classification
+│       ├── dataset_info.json
+│       ├── test/
+│       │   ├── 100/
+│       │   ├── 200/
+│       │   ├── 500/
+│       │   ├── 1000/
+│       │   ├── 2000/
+│       │   ├── 5000/
+│       │   ├── 10000/
+│       │   └── 20000/
+│       ├── train/
+│       │   ├── 100/
+│       │   ├── 200/
+│       │   ├── 500/
+│       │   ├── 1000/
+│       │   ├── 2000/
+│       │   ├── 5000/
+│       │   ├── 10000/
+│       │   └── 20000/
+│       └── val/
+│           ├── 100/
+│           ├── 200/
+│           ├── 500/
+│           ├── 1000/
+│           ├── 2000/
+│           ├── 5000/
+│           ├── 10000/
+│           └── 20000/
 ├── src/
 │   ├── data_preparation.py       # constantes des classes et helpers historiques
 │   ├── yolo_dataset.py           # conversion data/raw -> data/yolo_cls
@@ -44,7 +79,7 @@ projet_ariary/
 
 ```bash
 python3 -m venv venv
-source venv/bin/activate          # sous Windows : venv\Scripts\activate
+source venv/bin/activate          # sous ubuntu : env\Scripts\activate
 pip install -r requirements.txt
 ```
 
@@ -53,21 +88,11 @@ sous Windows/macOS ; sous Ubuntu/Debian : `sudo apt install python3-tk`).
 
 ## 4. Utilisation
 
-### 4.1 Préparer le jeu de données de démonstration (optionnel)
+### 4.1 Préparer les données
 
-Le dépôt ne contient pas toutes les images (poids trop lourd pour Git). Pour
-tester rapidement le pipeline, placez des images de référence dans
-`data/raw/<valeur>/` avec des noms qui commencent par `model` (`model1.jpg`,
-`model2.png`, `model_recto.jpeg`, etc.), puis lancez le script. Il affichera
-les classes disponibles et demandera la classe puis le nombre d'images à
-générer :
-
-```bash
-python data/raw/generate_demo_dataset.py
-```
-
-Voir `data/README.md` pour la méthodologie de collecte d'un **vrai** jeu
-de données à partir de photographies de billets.
+Les images brutes du jeu de données sont organisées dans `data/raw/` par classe 
+(valeur faciale du billet) : `100/`, `200/`, `500/`, `1000/`, `2000/`, `5000/`, 
+`10000/`, `20000/`.
 
 ### 4.2 Entraîner le modèle
 
@@ -115,7 +140,5 @@ visualiser le score du modèle pour chacune des 8 classes.
 ## 5. Résultats
 
 Voir `results/metrics.json` et le rapport (`rapport/`) pour l'analyse
-complète. **Important** : les métriques obtenues avec un jeu de démonstration
-généré depuis quelques images modèles ne sont pas représentatives de la
-performance sur de vraies photographies variées — voir `data/README.md`,
-section 3.
+complète. **Important** : les métriques obtenues dépendent de la qualité et de
+la représentativité du jeu de données dans `data/raw/`.
