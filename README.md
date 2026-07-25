@@ -19,61 +19,93 @@ Les 8 coupures reconnues (série en circulation, BFM) : **100, 200, 500,
 
 ```
 projet_ariary/
-├── [data/](data)
-│   ├── [raw/](data/raw)                  # images brutes classées par dossier (label = valeur faciale)
-│   │   ├── [100/](data/raw/100)
-│   │   ├── [200/](data/raw/200)
-│   │   ├── [500/](data/raw/500)
-│   │   ├── [1000/](data/raw/1000)
-│   │   ├── [2000/](data/raw/2000)
-│   │   ├── [5000/](data/raw/5000)
-│   │   ├── [10000/](data/raw/10000)
-│   │   └── [20000/](data/raw/20000)
-│   └── [yolo_cls/](data/yolo_cls)             # dataset au format Ultralytics classification
-│       ├── [dataset_info.json](data/yolo_cls/dataset_info.json)
-│       ├── [test/](data/yolo_cls/test)
-│       │   ├── [100/](data/yolo_cls/test/100)
-│       │   ├── [200/](data/yolo_cls/test/200)
-│       │   ├── [500/](data/yolo_cls/test/500)
-│       │   ├── [1000/](data/yolo_cls/test/1000)
-│       │   ├── [2000/](data/yolo_cls/test/2000)
-│       │   ├── [5000/](data/yolo_cls/test/5000)
-│       │   ├── [10000/](data/yolo_cls/test/10000)
-│       │   └── [20000/](data/yolo_cls/test/20000)
-│       ├── [train/](data/yolo_cls/train)
-│       │   ├── [100/](data/yolo_cls/train/100)
-│       │   ├── [200/](data/yolo_cls/train/200)
-│       │   ├── [500/](data/yolo_cls/train/500)
-│       │   ├── [1000/](data/yolo_cls/train/1000)
-│       │   ├── [2000/](data/yolo_cls/train/2000)
-│       │   ├── [5000/](data/yolo_cls/train/5000)
-│       │   ├── [10000/](data/yolo_cls/train/10000)
-│       │   └── [20000/](data/yolo_cls/train/20000)
-│       └── [val/](data/yolo_cls/val)
-│           ├── [100/](data/yolo_cls/val/100)
-│           ├── [200/](data/yolo_cls/val/200)
-│           ├── [500/](data/yolo_cls/val/500)
-│           ├── [1000/](data/yolo_cls/val/1000)
-│           ├── [2000/](data/yolo_cls/val/2000)
-│           ├── [5000/](data/yolo_cls/val/5000)
-│           ├── [10000/](data/yolo_cls/val/10000)
-│           └── [20000/](data/yolo_cls/val/20000)
-├── [src/](src)
-│   ├── [data_preparation.py](src/data_preparation.py)       # constantes des classes et helpers historiques
-│   ├── [yolo_dataset.py](src/yolo_dataset.py)           # conversion data/raw -> data/yolo_cls
-│   ├── [model.py](src/model.py)                  # chargement du modèle Ultralytics YOLO
-│   ├── [train.py](src/train.py)                  # entraînement YOLO classification
-│   ├── [evaluate.py](src/evaluate.py)               # évaluation + métriques + matrice de confusion
-│   └── [predict.py](src/predict.py)                # prédiction en ligne de commande sur une image
-├── [gui/](gui)
-│   └── [app_tkinter.py](gui/app_tkinter.py)        # interface graphique de démonstration (Tkinter)
-├── [models/](models)
-│   └── [ariary_yolo_cls.pt](models/ariary_yolo_cls.pt)    # modèle YOLO entraîné (généré par train.py)
-├── [results/](results)                  # métriques, courbes, matrice de confusion (générés)
-├── [rapport/](rapport)                  # rapport du projet (étude bibliographique, résultats, etc.)
-├── [requirements.txt](requirements.txt)
-└── [README.md](README.md)
+├── data/
+│   ├── raw/                           # images brutes classées par dossier (label = valeur faciale)
+│   │   ├── 100/
+│   │   ├── 200/
+│   │   ├── 500/
+│   │   ├── 1000/
+│   │   ├── 2000/
+│   │   ├── 5000/
+│   │   ├── 10000/
+│   │   └── 20000/
+│   └── yolo_cls/                      # dataset au format Ultralytics classification
+│       ├── dataset_info.json
+│       ├── test/
+│       │   ├── 100/ … 20000/
+│       ├── train/
+│       │   ├── 100/ … 20000/
+│       └── val/
+│           ├── 100/ … 20000/
+├── src/
+│   ├── data_preparation.py            # constantes des classes et helpers historiques
+│   ├── yolo_dataset.py                # conversion data/raw -> data/yolo_cls
+│   ├── model.py                       # chargement du modèle Ultralytics YOLO
+│   ├── train.py                       # entraînement YOLO classification
+│   ├── evaluate.py                    # évaluation + métriques + matrice de confusion
+│   └── predict.py                     # prédiction en ligne de commande sur une image
+├── gui/
+│   └── app_tkinter.py                 # interface graphique de démonstration (Tkinter)
+├── models/
+│   └── ariary_yolo_cls.pt             # modèle YOLO entraîné (généré par train.py)
+├── results/                           # métriques, courbes, matrice de confusion (générés)
+│   ├── classification_report.txt
+│   ├── confusion_matrix.csv
+│   ├── matrice_confusion.png
+│   ├── metrics.json
+│   └── per_class_metrics.json
+├── runs/                              # sorties complètes d'entraînement Ultralytics
+│   └── classify/results/yolo/ariary_yolo_cls/
+│       ├── args.yaml
+│       ├── results.csv
+│       ├── results.png
+│       ├── confusion_matrix.png
+│       ├── confusion_matrix_normalized.png
+│       ├── train_batch0.jpg
+│       ├── train_batch1.jpg
+│       ├── train_batch2.jpg
+│       ├── train_batch1170.jpg
+│       ├── train_batch1171.jpg
+│       ├── train_batch1172.jpg
+│       ├── val_batch0_labels.jpg
+│       ├── val_batch0_pred.jpg
+│       ├── val_batch1_labels.jpg
+│       ├── val_batch1_pred.jpg
+│       ├── val_batch2_labels.jpg
+│       ├── val_batch2_pred.jpg
+│       └── weights/
+│           ├── best.pt
+│           └── last.pt
+├── rapport/                           # rapport du projet
+│   ├── Rapport_Projet_RNA_Ariary.pdf
+│   ├── Rapport_Projet_RNA_Ariary.docx
+│   ├── Rapport_Projet_RNA_Ariary.odt
+│   ├── build_report.js
+│   └── demo_screenshot.png
+├── requirements.txt
+└── README.md
 ```
+
+### Liens rapides vers les dossiers et fichiers principaux
+
+| Élément | Lien |
+|---------|------|
+| **Données brutes** | [data/raw/](data/raw) |
+| **Dataset YOLO** | [data/yolo_cls/](data/yolo_cls) |
+| **Info dataset** | [data/yolo_cls/dataset_info.json](data/yolo_cls/dataset_info.json) |
+| **Code source** | [src/](src) |
+| **Préparation** | [src/data_preparation.py](src/data_preparation.py) |
+| **Conversion YOLO** | [src/yolo_dataset.py](src/yolo_dataset.py) |
+| **Modèle** | [src/model.py](src/model.py) |
+| **Entraînement** | [src/train.py](src/train.py) |
+| **Évaluation** | [src/evaluate.py](src/evaluate.py) |
+| **Prédiction** | [src/predict.py](src/predict.py) |
+| **Interface graphique** | [gui/app_tkinter.py](gui/app_tkinter.py) |
+| **Modèle entraîné** | [models/ariary_yolo_cls.pt](models/ariary_yolo_cls.pt) |
+| **Résultats** | [results/](results) |
+| **Runs YOLO** | [runs/classify/results/yolo/ariary_yolo_cls/](runs/classify/results/yolo/ariary_yolo_cls) |
+| **Rapport PDF** | [rapport/Rapport_Projet_RNA_Ariary.pdf](rapport/Rapport_Projet_RNA_Ariary.pdf) |
+| **Requirements** | [requirements.txt](requirements.txt) |
 
 ## 3. Installation
 
@@ -106,7 +138,7 @@ Options utiles : `--data_dir`, `--dataset_out`, `--epochs`, `--batch_size`,
 automatiquement `data/yolo_cls/` au format Ultralytics classification
 (`train/`, `val/`, `test/`). Le modèle final est sauvegardé dans
 `models/ariary_yolo_cls.pt`, et les résultats d'entraînement Ultralytics dans
-`results/yolo/`.
+`runs/classify/results/yolo/ariary_yolo_cls/`.
 
 Par défaut, le modèle de base est `yolov8n-cls.pt`. Vous pouvez fournir un
 autre checkpoint Ultralytics compatible via `--base_model`.
@@ -142,3 +174,60 @@ visualiser le score du modèle pour chacune des 8 classes.
 Voir `results/metrics.json` et le rapport (`rapport/`) pour l'analyse
 complète. **Important** : les métriques obtenues dépendent de la qualité et de
 la représentativité du jeu de données dans `data/raw/`.
+
+## 6. Sorties d'entraînement (`runs/`)
+
+Le dossier [`runs/classify/results/yolo/ariary_yolo_cls/`](runs/classify/results/yolo/ariary_yolo_cls) contient toutes les sorties générées automatiquement par Ultralytics YOLO lors de l'entraînement du modèle de classification.
+
+### 6.1 Configuration
+
+| Fichier | Description |
+|---------|-------------|
+| [`args.yaml`](runs/classify/results/yolo/ariary_yolo_cls/args.yaml) | Hyperparamètres et configuration utilisés pour l'entraînement (epochs, batch size, learning rate, image size, etc.) |
+
+### 6.2 Métriques et courbes d'entraînement
+
+| Fichier | Description |
+|---------|-------------|
+| [`results.csv`](runs/classify/results/yolo/ariary_yolo_cls/results.csv) | Métriques par époque : loss d'entraînement, loss de validation, accuracy top-1, accuracy top-5 |
+| [`results.png`](runs/classify/results/yolo/ariary_yolo_cls/results.png) | Graphiques des courbes d'entraînement (loss et accuracy au fil des époques) |
+
+### 6.3 Matrices de confusion
+
+| Fichier | Description |
+|---------|-------------|
+| [`confusion_matrix.png`](runs/classify/results/yolo/ariary_yolo_cls/confusion_matrix.png) | Matrice de confusion (valeurs absolues) sur le jeu de validation |
+| [`confusion_matrix_normalized.png`](runs/classify/results/yolo/ariary_yolo_cls/confusion_matrix_normalized.png) | Matrice de confusion normalisée (pourcentages) sur le jeu de validation |
+
+### 6.4 Visualisation des batches d'entraînement
+
+Ces images montrent des exemples de lots (batches) utilisés pendant l'entraînement, avec les augmentations de données appliquées :
+
+| Fichier | Description |
+|---------|-------------|
+| [`train_batch0.jpg`](runs/classify/results/yolo/ariary_yolo_cls/train_batch0.jpg) | Premier batch d'entraînement (début de l'entraînement) |
+| [`train_batch1.jpg`](runs/classify/results/yolo/ariary_yolo_cls/train_batch1.jpg) | Deuxième batch d'entraînement |
+| [`train_batch2.jpg`](runs/classify/results/yolo/ariary_yolo_cls/train_batch2.jpg) | Troisième batch d'entraînement |
+| [`train_batch1170.jpg`](runs/classify/results/yolo/ariary_yolo_cls/train_batch1170.jpg) | Batch d'entraînement en fin d'entraînement |
+| [`train_batch1171.jpg`](runs/classify/results/yolo/ariary_yolo_cls/train_batch1171.jpg) | Batch d'entraînement en fin d'entraînement |
+| [`train_batch1172.jpg`](runs/classify/results/yolo/ariary_yolo_cls/train_batch1172.jpg) | Dernier batch d'entraînement |
+
+### 6.5 Visualisation des batches de validation
+
+Ces images comparent les labels réels et les prédictions du modèle sur le jeu de validation :
+
+| Fichier | Description |
+|---------|-------------|
+| [`val_batch0_labels.jpg`](runs/classify/results/yolo/ariary_yolo_cls/val_batch0_labels.jpg) | Batch de validation 0 — labels réels (ground truth) |
+| [`val_batch0_pred.jpg`](runs/classify/results/yolo/ariary_yolo_cls/val_batch0_pred.jpg) | Batch de validation 0 — prédictions du modèle |
+| [`val_batch1_labels.jpg`](runs/classify/results/yolo/ariary_yolo_cls/val_batch1_labels.jpg) | Batch de validation 1 — labels réels |
+| [`val_batch1_pred.jpg`](runs/classify/results/yolo/ariary_yolo_cls/val_batch1_pred.jpg) | Batch de validation 1 — prédictions du modèle |
+| [`val_batch2_labels.jpg`](runs/classify/results/yolo/ariary_yolo_cls/val_batch2_labels.jpg) | Batch de validation 2 — labels réels |
+| [`val_batch2_pred.jpg`](runs/classify/results/yolo/ariary_yolo_cls/val_batch2_pred.jpg) | Batch de validation 2 — prédictions du modèle |
+
+### 6.6 Poids du modèle
+
+| Fichier | Description |
+|---------|-------------|
+| [`weights/best.pt`](runs/classify/results/yolo/ariary_yolo_cls/weights/best.pt) | Meilleurs poids du modèle (accuracy de validation maximale) |
+| [`weights/last.pt`](runs/classify/results/yolo/ariary_yolo_cls/weights/last.pt) | Poids du modèle à la dernière époque d'entraînement |
