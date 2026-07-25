@@ -72,7 +72,6 @@ de données à partir de photographies de billets.
 ### 4.2 Entraîner le modèle
 
 ```bash
-python src/train.py --epochs 50 --batch_size 16
 
 ./env/bin/python3 src/train.py --epochs 25 --batch_size 8 --imgsz 160 --rebuild_dataset
 ```
@@ -90,7 +89,7 @@ autre checkpoint Ultralytics compatible via `--base_model`.
 ### 4.3 Évaluer le modèle
 
 ```bash
-python src/evaluate.py
+./env/bin/python3 src/evaluate.py
 ```
 
 Génère :
@@ -101,7 +100,7 @@ Génère :
 ### 4.4 Démonstration (interface graphique Tkinter)
 
 ```bash
-python gui/app_tkinter.py
+./env/bin/python3 gui/app_tkinter.py
 ```
 
 Permet de charger une photo de billet, de lancer la prédiction, et de
@@ -110,7 +109,7 @@ visualiser le score du modèle pour chacune des 8 classes.
 ### 4.5 Prédiction en ligne de commande
 
 ```bash
-python src/predict.py chemin/vers/image.jpg
+./env/bin/python3 src/predict.py chemin/vers/image.jpg
 ```
 
 ## 5. Résultats
