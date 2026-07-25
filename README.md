@@ -19,60 +19,60 @@ Les 8 coupures reconnues (série en circulation, BFM) : **100, 200, 500,
 
 ```
 projet_ariary/
-├── data/
-│   ├── raw/                  # images brutes classées par dossier (label = valeur faciale)
-│   │   ├── 100/
-│   │   ├── 200/
-│   │   ├── 500/
-│   │   ├── 1000/
-│   │   ├── 2000/
-│   │   ├── 5000/
-│   │   ├── 10000/
-│   │   └── 20000/
-│   └── yolo_cls/             # dataset au format Ultralytics classification
-│       ├── dataset_info.json
-│       ├── test/
-│       │   ├── 100/
-│       │   ├── 200/
-│       │   ├── 500/
-│       │   ├── 1000/
-│       │   ├── 2000/
-│       │   ├── 5000/
-│       │   ├── 10000/
-│       │   └── 20000/
-│       ├── train/
-│       │   ├── 100/
-│       │   ├── 200/
-│       │   ├── 500/
-│       │   ├── 1000/
-│       │   ├── 2000/
-│       │   ├── 5000/
-│       │   ├── 10000/
-│       │   └── 20000/
-│       └── val/
-│           ├── 100/
-│           ├── 200/
-│           ├── 500/
-│           ├── 1000/
-│           ├── 2000/
-│           ├── 5000/
-│           ├── 10000/
-│           └── 20000/
-├── src/
-│   ├── data_preparation.py       # constantes des classes et helpers historiques
-│   ├── yolo_dataset.py           # conversion data/raw -> data/yolo_cls
-│   ├── model.py                  # chargement du modèle Ultralytics YOLO
-│   ├── train.py                  # entraînement YOLO classification
-│   ├── evaluate.py               # évaluation + métriques + matrice de confusion
-│   └── predict.py                # prédiction en ligne de commande sur une image
-├── gui/
-│   └── app_tkinter.py        # interface graphique de démonstration (Tkinter)
-├── models/
-│   └── ariary_yolo_cls.pt    # modèle YOLO entraîné (généré par train.py)
-├── results/                  # métriques, courbes, matrice de confusion (générés)
-├── rapport/                  # rapport du projet (étude bibliographique, résultats, etc.)
-├── requirements.txt
-└── README.md
+├── [data/](data)
+│   ├── [raw/](data/raw)                  # images brutes classées par dossier (label = valeur faciale)
+│   │   ├── [100/](data/raw/100)
+│   │   ├── [200/](data/raw/200)
+│   │   ├── [500/](data/raw/500)
+│   │   ├── [1000/](data/raw/1000)
+│   │   ├── [2000/](data/raw/2000)
+│   │   ├── [5000/](data/raw/5000)
+│   │   ├── [10000/](data/raw/10000)
+│   │   └── [20000/](data/raw/20000)
+│   └── [yolo_cls/](data/yolo_cls)             # dataset au format Ultralytics classification
+│       ├── [dataset_info.json](data/yolo_cls/dataset_info.json)
+│       ├── [test/](data/yolo_cls/test)
+│       │   ├── [100/](data/yolo_cls/test/100)
+│       │   ├── [200/](data/yolo_cls/test/200)
+│       │   ├── [500/](data/yolo_cls/test/500)
+│       │   ├── [1000/](data/yolo_cls/test/1000)
+│       │   ├── [2000/](data/yolo_cls/test/2000)
+│       │   ├── [5000/](data/yolo_cls/test/5000)
+│       │   ├── [10000/](data/yolo_cls/test/10000)
+│       │   └── [20000/](data/yolo_cls/test/20000)
+│       ├── [train/](data/yolo_cls/train)
+│       │   ├── [100/](data/yolo_cls/train/100)
+│       │   ├── [200/](data/yolo_cls/train/200)
+│       │   ├── [500/](data/yolo_cls/train/500)
+│       │   ├── [1000/](data/yolo_cls/train/1000)
+│       │   ├── [2000/](data/yolo_cls/train/2000)
+│       │   ├── [5000/](data/yolo_cls/train/5000)
+│       │   ├── [10000/](data/yolo_cls/train/10000)
+│       │   └── [20000/](data/yolo_cls/train/20000)
+│       └── [val/](data/yolo_cls/val)
+│           ├── [100/](data/yolo_cls/val/100)
+│           ├── [200/](data/yolo_cls/val/200)
+│           ├── [500/](data/yolo_cls/val/500)
+│           ├── [1000/](data/yolo_cls/val/1000)
+│           ├── [2000/](data/yolo_cls/val/2000)
+│           ├── [5000/](data/yolo_cls/val/5000)
+│           ├── [10000/](data/yolo_cls/val/10000)
+│           └── [20000/](data/yolo_cls/val/20000)
+├── [src/](src)
+│   ├── [data_preparation.py](src/data_preparation.py)       # constantes des classes et helpers historiques
+│   ├── [yolo_dataset.py](src/yolo_dataset.py)           # conversion data/raw -> data/yolo_cls
+│   ├── [model.py](src/model.py)                  # chargement du modèle Ultralytics YOLO
+│   ├── [train.py](src/train.py)                  # entraînement YOLO classification
+│   ├── [evaluate.py](src/evaluate.py)               # évaluation + métriques + matrice de confusion
+│   └── [predict.py](src/predict.py)                # prédiction en ligne de commande sur une image
+├── [gui/](gui)
+│   └── [app_tkinter.py](gui/app_tkinter.py)        # interface graphique de démonstration (Tkinter)
+├── [models/](models)
+│   └── [ariary_yolo_cls.pt](models/ariary_yolo_cls.pt)    # modèle YOLO entraîné (généré par train.py)
+├── [results/](results)                  # métriques, courbes, matrice de confusion (générés)
+├── [rapport/](rapport)                  # rapport du projet (étude bibliographique, résultats, etc.)
+├── [requirements.txt](requirements.txt)
+└── [README.md](README.md)
 ```
 
 ## 3. Installation
