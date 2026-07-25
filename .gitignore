@@ -34,7 +34,10 @@ Thumbs.db
 
 # Node modules
 node_modules/
-
+rapport/build_report.js
+rapport/Rapport_Projet_RNA_Ariary.odt
+data/raw/generate_demo_dataset.py
+redute_image.py
 
 
 # Les resultats et modeles du projet restent suivis par Git.
