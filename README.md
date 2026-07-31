@@ -4,6 +4,8 @@ Le système utilise Ultralytics YOLO et OpenCV pour identifier automatiquement
 la valeur faciale d'un billet d'ariary (monnaie de Madagascar, MGA) à partir
 d'une photographie, avec une interface graphique de démonstration (Tkinter).
 
+Demonstration : https://www.youtube.com/watch?v=XUKEYU0d85s
+
 ## 1. Sujet
 
 > Reconnaissance automatique des billets d'ariary — fournir un ouvrage
