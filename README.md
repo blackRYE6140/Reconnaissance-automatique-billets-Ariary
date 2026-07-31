@@ -77,8 +77,8 @@ projet_ariary/
 │           ├── best.pt
 │           └── last.pt
 ├── rapport/                           # rapport du projet
-│   ├── Rapport_Projet_RNA_Ariary.pdf
-│   └── demo_screenshot.png
+│   ├── Rapport_Projet_RNA_Ariary.docx
+│   └── Rapport_Projet_RNA_Ariary.pdf
 ├── requirements.txt
 └── README.md
 ```
