@@ -78,9 +78,6 @@ projet_ariary/
 │           └── last.pt
 ├── rapport/                           # rapport du projet
 │   ├── Rapport_Projet_RNA_Ariary.pdf
-│   ├── Rapport_Projet_RNA_Ariary.docx
-│   ├── Rapport_Projet_RNA_Ariary.odt
-│   ├── build_report.js
 │   └── demo_screenshot.png
 ├── requirements.txt
 └── README.md
